@@ -56,3 +56,17 @@ document.addEventListener("DOMContentLoaded", () => {
  const detailRating = document.getElementById("detail-rating");
  const detailComment = document.getElementById("detail-comment");
  const newRamenForm = document.getElementById("new-ramen");
+function displayRamen() {
+   ramenMenu.innerHTML = ""; 
+   ramens.forEach((ramen) => {
+     const img = document.createElement("img");
+     img.src = ramen.image;
+     img.alt = ramen.name;
+     img.addEventListener("click", () => handleClick(ramen));
+     ramenMenu.appendChild(img);
+   });
+
+   if (ramens.length > 0) {
+     handleClick(ramens[0]);
+   }
+ }
