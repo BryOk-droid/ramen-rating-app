@@ -70,3 +70,10 @@ function displayRamen() {
      handleClick(ramens[0]);
    }
  }
+function handleClick(ramen) {
+   selectedImage.src = ramen.image;
+   overlayName.textContent = ramen.name;
+   overlayRestaurant.textContent = ramen.restaurant;
+   detailRating.textContent = ramen.rating;
+   detailComment.textContent = ramen.comment;
+ }
