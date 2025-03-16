@@ -48,3 +48,11 @@ const ramens = [
     comment: "Tasty Food",
   },
 ];
+document.addEventListener("DOMContentLoaded", () => {
+ const ramenMenu = document.getElementById("ramen-menu");
+ const selectedImage = document.getElementById("selected-ramen-image");
+ const overlayName = document.getElementById("overlay-name");
+ const overlayRestaurant = document.getElementById("overlay-restaurant");
+ const detailRating = document.getElementById("detail-rating");
+ const detailComment = document.getElementById("detail-comment");
+ const newRamenForm = document.getElementById("new-ramen");
