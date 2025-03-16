@@ -77,3 +77,49 @@ function handleClick(ramen) {
    detailRating.textContent = ramen.rating;
    detailComment.textContent = ramen.comment;
  }
+function addSubmitListener() {
+   newRamenForm.addEventListener("submit", (event) => {
+     event.preventDefault();
+
+
+     const ratingValue = parseInt(newRamenForm.rating.value);
+
+
+     // Ensure the rating is between 1 and 10
+     if (ratingValue < 1 || ratingValue > 10) {
+       alert("Please enter a rating between 1 and 10.");
+       return;
+     }
+
+
+     // Create new ramen object
+     const newRamen = {
+       id: ramens.length + 1,
+       name: newRamenForm.name.value,
+       restaurant: newRamenForm.restaurant.value,
+       image: newRamenForm.image.value,
+       rating: ratingValue,
+       comment: newRamenForm.comment.value,
+     };
+
+
+     // Add to the array
+     ramens.push(newRamen);
+
+
+     // Create and append new image
+     const img = document.createElement("img");
+     img.src = newRamen.image;
+     img.alt = newRamen.name;
+     img.addEventListener("click", () => handleClick(newRamen));
+     ramenMenu.appendChild(img);
+
+
+     // Automatically display the newly added ramen
+     handleClick(newRamen);
+
+
+     // Reset the form
+     newRamenForm.reset();
+   });
+ }
